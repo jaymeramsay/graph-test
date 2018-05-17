@@ -8,14 +8,17 @@
 
   </head>
   <body>
+    <h2>Line Graph</h2>
   <canvas></canvas>
-  <form>
-    <input id="x" type="number">
-    <input id="y" type="number">
-    <button type="button" name="button" onclick="storesDataPoint()">Store Data</button>
-    <button type="submit" name="button">View Data</button>
-    <button type="reset" name="button" onclick="resetsDataPoints()">Reset Data</button>
-  </form>
-  <script src="main.js"></script>
+  <div>
+    <form>
+      X: <input id="x" type="number" placeholder="Enter X coordinate">
+      Y: <input id="y" type="number" placeholder="Enter Y coordinate">
+      <button type="button" name="button" onclick="storesDataPoint()">Store Data</button>
+      <button type="submit" name="button">View Data</button>
+      <button type="reset" name="button" onclick="resetsDataPoints()">Reset Data</button>
+    </form>
+  <div>
+  <script src="app.js"></script>
   </body>
 </html>
