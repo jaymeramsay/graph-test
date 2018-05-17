@@ -1,6 +1,7 @@
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
 const myForm = document.querySelector('form')
+let dataPoints = [];
 
 //creates grid on canvas
 const gridSize = 5;
@@ -8,7 +9,6 @@ const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 const numXLines = Math.floor(canvasHeight/gridSize)
 const numYLines = Math.floor(canvasWidth/gridSize)
-let dataPoints = [];
 
 //draws x coordinate lines
 const drawXLines = () => {
@@ -27,6 +27,8 @@ const drawXLines = () => {
     context.stroke();
   }
 }
+
+//NOTE: do more math and discover the actual dimensions of the grid on the canvas so I can write conditionals around data size.
 
 //draws y coordinate lines
 const drawYLines = () => {
@@ -56,6 +58,7 @@ const storesDataPoint = () => {
   let xVal = document.getElementById('x').value;
   let yVal = document.getElementById('y').value;
   dataPoints.push({x: xVal, y: yVal});
+  //resets input fields to empty
   if(xVal) {
     document.getElementById('x').value = '';
   }
@@ -72,7 +75,7 @@ const rendersData = (ev) => {
   //iterates over the data points
     for(let i = 0; i < dataPoints.length; i++) {
       console.log(dataPoints[i]);
-      //starts the line
+      //starts the line path
       context.beginPath()
       //marks the first data point
       context.moveTo(dataPoints[i].x, dataPoints[i].y)
@@ -85,9 +88,14 @@ const rendersData = (ev) => {
     }
 }
 
+// event that puts the lines on the grid and displays data points
 myForm.addEventListener('submit', rendersData)
 
+
+//return the grid and array to blank
 const resetsDataPoints = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
+  drawXLines();
+  drawYLines();
   return dataPoints = [];
 }
