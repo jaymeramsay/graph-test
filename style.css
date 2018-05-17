@@ -14,3 +14,19 @@ canvas {
   height: 400px;
   border: 2px solid black;
 }
+
+button {
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: tan;
+}
+
+input {
+  padding: 4px;
+}
+
+.form {
+  margin: 15px;
+}
